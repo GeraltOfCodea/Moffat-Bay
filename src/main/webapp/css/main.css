@@ -1,0 +1,347 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo img {
+    max-height: 50px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+header .auth-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 500px;
+    background-image: url('../images/hero.png'); /* Image called using css */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero h1 {
+    font-family: 'Cairo Play', sans-serif;
+    font-size: 80px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.hero .btn {
+    background-color: #E89B53;
+    color: #426E76;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 5px;
+}
+
+/* Facilities Section */
+.facilities {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.facilities h2 {
+    font-size: 45px;
+    color: #426E76;
+    margin-bottom: 40px;
+}
+
+.facility-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.facility {
+    width: 150px;
+}
+
+.facility-icon {
+    font-size: 50px;
+    color: #426E76;
+    margin-bottom: 10px;
+}
+
+.facility h3 {
+    font-size: 24px;
+    color: #9C9FA1;
+}
+
+/* Attractions Section */
+.attractions {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.attractions h2 {
+    font-size: 45px;
+    color: #956F54;
+    margin-bottom: 40px;
+}
+
+.attraction-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.attraction {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.attraction-image {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.attraction-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.attraction:hover .attraction-overlay {
+    opacity: 1;
+}
+
+.attraction-overlay h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.attraction-overlay .btn {
+    background-color: #E89B53;
+    color: #426E76;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+/* Rooms Section */
+.rooms {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.rooms h2 {
+    font-size: 45px;
+    color: #426E76;
+    margin-bottom: 40px;
+}
+
+.room-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.room {
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.room-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.room-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.room:hover .room-overlay {
+    opacity: 1;
+}
+
+.room-overlay h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.room-overlay .btn {
+    background-color: #E89B53;
+    color: #426E76;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: #3D3F32;
+    color: #fff;
+    padding: 40px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+footer .footer-info img {
+    max-height: 50px;
+}
+
+footer .footer-info p {
+    margin-top: 20px;
+}
+
+footer .footer-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+footer .footer-nav ul li a {
+    color: #B7C3D1;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+footer .footer-nav p {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    text-align: center;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+    .facility-list,
+    .attraction-list,
+    .room-list {
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .facilities h2,
+    .attractions h2,
+    .rooms h2 {
+        font-size: 30px;
+    }
+
+    .facility h3,
+    .attraction-overlay h3,
+    .room-overlay h3 {
+        font-size: 24px;
+    }
+}
