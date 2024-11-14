@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Database credentials
-DB_USER="your_db_user"
-DB_PASS="your_db_password"
+DB_USER="root"
+DB_PASS="password1"
 DB_HOST="localhost"
 
 # Initialize database
