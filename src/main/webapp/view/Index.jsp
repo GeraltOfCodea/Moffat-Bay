@@ -7,34 +7,17 @@
     <link href="https://fonts.googleapis.com/css?family=Cairo+Play&display=swap" rel="stylesheet">
     <!-- Include Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="../css/main.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="../images/logo.png" alt="Moffat Bay Lodge">
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Attractions</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </nav>
-            <div class="auth-links">
-                <a href="#">Login / Register</a>
-            </div>
-        </div>
-    </header>
+ 	<%@ include file="/view/components/header.jsp" %>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">
             <h1>WELCOME TO Moffat Bay Lodge</h1>
-            <p>Where Nature Meets Tranquility – Discover Your Escape at Moffat Bay Lodge</p>
+            <p>Where Nature Meets Tranquility. Discover Your Escape at Moffat Bay Lodge</p>
             <a href="#" class="btn">Book Now</a>
         </div>
     </section>
@@ -82,16 +65,16 @@
         <div class="attraction-list">
             <!-- First Attraction -->
             <div class="attraction">
-                <div class="attraction-image" style="background-image: url('../images/visitor-info.png');">
+                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/visitor-info.png');">
                     <div class="attraction-overlay">
                         <h3>Visiting the Island</h3>
-                        <a href="#" class="btn">Learn More</a>
+                        <a href="https://www.visitsanjuans.com/" target="blank" class="btn">Learn More</a>
                     </div>
                 </div>
             </div>
             <!-- Second Attraction -->
             <div class="attraction">
-                <div class="attraction-image" style="background-image: url('../images/dining.png');">
+                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/dining.png');">
                     <div class="attraction-overlay">
                         <h3>Dining</h3>
                         <a href="#" class="btn">Learn More</a>
@@ -100,7 +83,7 @@
             </div>
             <!-- Third Attraction -->
             <div class="attraction">
-                <div class="attraction-image" style="background-image: url('../images/whale-watching.png');">
+                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/whale-watching.png');">
                     <div class="attraction-overlay">
                         <h3>Whale Watching</h3>
                         <a href="#" class="btn">Learn More</a>
@@ -109,7 +92,7 @@
             </div>
             <!-- Fourth Attraction -->
             <div class="attraction">
-                <div class="attraction-image" style="background-image: url('../images/kayaking.png');">
+                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/kayaking.png');">
                     <div class="attraction-overlay">
                         <h3>Kayaking</h3>
                         <a href="#" class="btn">Learn More</a>
@@ -118,7 +101,7 @@
             </div>
             <!-- Fifth Attraction -->
             <div class="attraction">
-                <div class="attraction-image" style="background-image: url('../images/scuba-diving.png');">
+                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/scuba-diving.png');">
                     <div class="attraction-overlay">
                         <h3>Scuba Diving</h3>
                         <a href="#" class="btn">Learn More</a>
@@ -127,7 +110,7 @@
             </div>
             <!-- Sixth Attraction -->
             <div class="attraction">
-                <div class="attraction-image" style="background-image: url('../images/hiking.png');">
+                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/hiking.png');">
                     <div class="attraction-overlay">
                         <h3>Hiking</h3>
                         <a href="#" class="btn">Learn More</a>
@@ -142,7 +125,7 @@
         <h2>Rooms</h2>
         <div class="room-list">
             <div class="room">
-                <div class="room-image" style="background-image: url('../images/club-king-room.png');">
+                <div class="room-image" style="background-image: url('${pageContext.request.contextPath}/images/club-king-room.png');">
                     <div class="room-overlay">
                         <h3>Club King Room</h3>
                         <a href="#" class="btn">Book Now</a>
@@ -154,24 +137,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-info">
-                <img src="../images/logo.png" alt="Moffat Bay Lodge">
-                <p>
-                    Moffat Bay<br>
-                    +1 800 555 555<br>
-                    info@moffatbay.com
-                </p>
-            </div>
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-                <p>&copy; 2023 Moffat Bay Lodge</p>
-            </div>
-        </div>
-    </footer>
+    <%@ include file="/view/components/footer.jsp" %>
+    
 </body>
 </html>
