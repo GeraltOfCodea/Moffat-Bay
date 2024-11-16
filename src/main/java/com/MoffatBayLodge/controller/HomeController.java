@@ -1,4 +1,4 @@
-package main.java.com.MoffatBayLodge.controller;
+package com.MoffatBayLodge.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
