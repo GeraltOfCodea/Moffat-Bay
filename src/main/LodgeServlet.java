@@ -56,4 +56,7 @@ public class LodgeServlet extends HttpServlet implements Servlet {
                 break;
             default:
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid action");
-   
+        }
+
+    }
+}
