@@ -82,3 +82,6 @@ public class DBManager {
             System.out.println("Unable to log in." + e.getMessage());
         }
 
+    }
+
+}

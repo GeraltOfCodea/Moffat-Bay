@@ -248,4 +248,5 @@ body{
     text-decoration: none;
 }
 .create-account p a:hover{
-    text
+    text-decoration: underline;
+}

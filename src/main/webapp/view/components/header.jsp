@@ -14,4 +14,7 @@
               </ul>
           </nav>
           <div class="auth-links">
-              <a href="${pageContext.request.contextPath}/view/registrationpg.jsp">Login
+              <a href="${pageContext.request.contextPath}/view/registrationpg.jsp">Login / Register</a>
+          </div>
+      </div>
+  </header>

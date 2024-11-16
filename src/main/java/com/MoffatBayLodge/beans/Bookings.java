@@ -65,4 +65,6 @@ public class Bookings {
     public void setCheckOutDate(Date checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
-
+
+
+}
