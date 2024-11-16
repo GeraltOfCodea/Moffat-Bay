@@ -17,6 +17,11 @@ public class Main {
         BookingsOps bops = new BookingsOps();
         CustomerOps cops = new CustomerOps();
 
+    }
+
+    ;
+};
+
 /*
         bops.showBookings(BookingsOps.getBookingByCustomerID(1), 1);
         bops.updateBooking(
@@ -31,7 +36,4 @@ public class Main {
         bops.showBookings(BookingsOps.getBookingByCustomerID(1), 1);
 */
 
-        //cops.addRegisteredUser("Test", "Account", "test@gmail.com", "12345678                                             ", "1111111111");
-
-    }
-}
+        //cops.addRegisteredUser("Test", "Account", "test@gmail.com", "12345678                                   
