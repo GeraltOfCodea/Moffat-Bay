@@ -69,11 +69,4 @@
                         <p>Already Have An Account? <a href="#" class="login-link">Sign In</a></p>
                     </div>
                 </form>
-            </div>
-            
-        </div>
-    </div>
-    </script>
-</body>
-
-</html>
+        

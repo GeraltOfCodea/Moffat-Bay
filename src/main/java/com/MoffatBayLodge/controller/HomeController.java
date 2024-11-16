@@ -14,6 +14,4 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("HomeController doGet called");
-        request.getRequestDispatcher("/view/Index.jsp").forward(request, response);
-    }
-}
+        request.getRequestDispatcher("/view/Index.jsp").forwar

@@ -23,5 +23,4 @@ public class Rooms {
     }
     public void setRoomPrice(float roomPrice) {
         this.roomPrice = roomPrice;
-    }
-}
+    

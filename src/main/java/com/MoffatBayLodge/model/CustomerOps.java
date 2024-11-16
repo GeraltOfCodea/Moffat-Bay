@@ -111,6 +111,4 @@ public class CustomerOps {
             db.closeConnection(conn);
         }
 
-        return name;
-    }
-}
+        return
