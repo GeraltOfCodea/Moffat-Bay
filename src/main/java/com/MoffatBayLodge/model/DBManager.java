@@ -12,12 +12,21 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import jakarta.servlet.ServletException;
 
 public class DBManager {
 
     private String dbURL ="";
     private String dbUser ="";
     private String dbPass ="";
+
+    static {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); // Ensure the driver class is loaded
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     //On DBManager object creation, connect to the database using properties file
     public DBManager() {
@@ -39,8 +48,9 @@ public class DBManager {
         Connection conn = null;
         try{
             conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
-        } catch (SQLException e){
-            System.out.println("Unable to connect to database.");
+        } catch (SQLException e) {
+            System.out.println("Unable to connect to database: " + e.getMessage()); // Added More verbose logging
+            e.printStackTrace();
         }
         return conn;
     }
@@ -49,8 +59,8 @@ public class DBManager {
     public void closeConnection(Connection conn){
         try{
             conn.close();
-        } catch (SQLException e){
-            System.out.println("Unable to close connection.");
+        } catch (SQLException e) {
+            System.out.println("Unable to connect to database: " + e.getMessage()); // Added More verbose logging
             e.printStackTrace();
         }
     }
@@ -73,13 +83,22 @@ public class DBManager {
      */
     public void checkLogin(HttpServletRequest request, HttpServletResponse response){
         Authentication auth = new Authentication();
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
         try {
-            if (auth.checkPassword(request, response)){
+            if (auth.checkPassword(email, password)){
                 System.out.println("Successfully logged in.");
-                response.sendRedirect(request.getContextPath() + "---------");
+                // Optionally, set session attributes
+                request.getSession().setAttribute("userName", auth.getUserName(email));
+                response.sendRedirect(request.getContextPath() + "/view/Index.jsp");
+            } else {
+                // Authentication failed
+                request.setAttribute("errorMessage", "Invalid email or password.");
+                request.getRequestDispatcher("/view/login.jsp").forward(request, response);
             }
-        } catch (IOException e){
-            System.out.println("Unable to log in." + e.getMessage());
+        } catch (IOException | ServletException e){
+            System.out.println("Unable to log in: " + e.getMessage());
+            e.printStackTrace();
         }
 
     }

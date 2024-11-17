@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 public class Authentication {
 
@@ -25,18 +26,42 @@ public class Authentication {
          * hashedPassword gets checked against password that the user entered using the BCrypt chechpw method
          * If the password
           */
-        public boolean checkPassword(HttpServletRequest request, HttpServletResponse response) {
+         public boolean checkPassword(String email, String password) {
+             DBManager dbManager = new DBManager();
+             Connection conn = dbManager.getConnection();
+             String query = "SELECT password_hash FROM registered_users WHERE email_address=?";
+             String hashedPassword = null;
+             if (conn != null) {
+                 try {
+                     PreparedStatement pstmt = conn.prepareStatement(query);
+                     pstmt.setString(1, email);
+                     ResultSet rs = pstmt.executeQuery();
+                     if (rs.next()) {
+                         hashedPassword = rs.getString("password_hash");
+                     }
+                 } catch (SQLException e) {
+                     System.out.println("Could not access database accounts.");
+                     e.printStackTrace();
+                 } finally {
+                     dbManager.closeConnection(conn);
+                 }
+             }
+             return hashedPassword != null && BCrypt.checkpw(password, hashedPassword);
+         }
+
+        //This method is called to place the username into the header when the customer completes authentication.
+        public String getUserName(String emailAddress) {
             DBManager dbManager = new DBManager();
             Connection conn = dbManager.getConnection();
-            String query = "SELECT password_hash FROM registered_users WHERE email_address=?";
-
-            String hashedPassword = null;
+            String query = "SELECT first_name FROM registered_users WHERE email_address=?";
+            String userName = null;
             if (conn != null) {
                 try {
-                    Statement stmt = conn.createStatement();
-                    ResultSet rs = stmt.executeQuery(query);
+                    PreparedStatement pstmt = conn.prepareStatement(query);
+                    pstmt.setString(1, emailAddress);
+                    ResultSet rs = pstmt.executeQuery();
                     if (rs.next()) {
-                        hashedPassword = rs.getString(1);
+                        userName = rs.getString("first_name");
                     }
                 } catch (SQLException e) {
                     System.out.println("Could not access database accounts.");
@@ -45,7 +70,31 @@ public class Authentication {
                     dbManager.closeConnection(conn);
                 }
             }
-            return BCrypt.checkpw(request.getParameter("password"), hashedPassword);
+            return userName;
+        }
+
+        // Method to check if an email is available on registration
+        public boolean isEmailAvailable(String emailAddress) {
+            DBManager dbManager = new DBManager();
+            Connection conn = dbManager.getConnection();
+            String query = "SELECT email_address FROM registered_users WHERE email_address=?";
+            boolean isAvailable = true;
+            if (conn != null) {
+                try {
+                    PreparedStatement pstmt = conn.prepareStatement(query);
+                    pstmt.setString(1, emailAddress);
+                    ResultSet rs = pstmt.executeQuery();
+                    if (rs.next()) {
+                        isAvailable = false;
+                    }
+                } catch (SQLException e) {
+                    System.out.println("Could not access database accounts.");
+                    e.printStackTrace();
+                } finally {
+                    dbManager.closeConnection(conn);
+                }
+            }
+            return isAvailable;
         }
 
         /*
@@ -58,9 +107,45 @@ public class Authentication {
         *
          */
 
+        // Method to register a new user
+        public boolean registerUser(String firstName, String lastName, String email, String phoneNumber, String hashedPassword) {
+            DBManager dbManager = new DBManager();
+            Connection conn = dbManager.getConnection();
+            String query = "INSERT INTO registered_users (first_name, last_name, email_address, phone_number, password_hash) VALUES (?, ?, ?, ?, ?)";
+            boolean isRegistered = false;
+            if (conn != null) {
+                try {
+                    PreparedStatement pstmt = conn.prepareStatement(query);
+                    pstmt.setString(1, firstName);
+                    pstmt.setString(2, lastName);
+                    pstmt.setString(3, email);
+                    pstmt.setString(4, phoneNumber);
+                    pstmt.setString(5, hashedPassword);
+                    int rowsAffected = pstmt.executeUpdate();
+                    if (rowsAffected > 0) {
+                        isRegistered = true;
+                    }
+                } catch (SQLException e) {
+                    System.out.println("Could not register user.");
+                    e.printStackTrace();
+                } finally {
+                    dbManager.closeConnection(conn);
+                }
+            }
+            return isRegistered;
+        }
+
+    // Phone number validation method
+    public static boolean phoneNumberFormatCheck(String phoneNumber) {
+        // Simple regex for phone numbers (e.g., 123-456-7890 or (123) 456-7890)
+        String regex = "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$";
+        return phoneNumber.matches(regex);
+    }
+
+        // Email Validation check
         public static boolean stringFormatCheck (String emailAddress){
 
-            String regex = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$]";
+            String regex = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$";
 
             if (emailAddress.matches(regex)) {
                 return true;
@@ -69,9 +154,10 @@ public class Authentication {
             }
         }
 
+        // Password Validation Check
         public static boolean stringPasswordCheck (String password){
 
-            String regex = "^(?=.[a-z])(?=.[A-Z])(?=.*\\d)[^\\s]{8,}$";;
+            String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$";
 
             if (password.matches(regex)){
                 return true;
