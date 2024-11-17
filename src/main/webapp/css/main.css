@@ -351,3 +351,71 @@ footer .footer-nav p {
         font-size: 24px;
     }
 }
+
+/* Login Form Styles */
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.login-form .form-group {
+    margin-bottom: 15px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form .form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-form .btn {
+    background-color: #E89B53;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-form .btn:hover {
+    background-color: #cf935a;
+}
+
+.login-form .form-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-form .form-footer a {
+    color: #E89B53;
+    text-decoration: none;
+}
+
+.login-form .form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design Login Page*/
+@media screen and (max-width: 480px) {
+    .login-form {
+        padding: 10px;
+    }
+}
+
+/* End Login Page*/
