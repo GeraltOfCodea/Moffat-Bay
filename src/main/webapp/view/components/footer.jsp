@@ -23,7 +23,7 @@
              <ul>
                  <li><a href="${pageContext.request.contextPath}/view/aboutus.jsp">About Us</a></li>
              </ul>
-             <p>&copy; 2023 Moffat Bay Lodge</p>
+             <p>&copy; 2024 Moffat Bay Lodge</p>
          </div>
      </div>
  </footer>

@@ -43,6 +43,7 @@ header nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    position: relative; /* Added for underline positioning */
 }
 
 header .auth-links a {
@@ -50,13 +51,30 @@ header .auth-links a {
     color: #333;
 }
 
+/* Navigation Underline Effect */
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #333; /* Underline color */
+    left: 0;
+    bottom: -5px; /* Position the underline slightly below the text */
+    transition: width 0.3s;
+}
+
+header nav ul li a:hover::after,
+header nav ul li a:focus::after {
+    width: 100%; /* Expand underline on hover */
+}
+
 /* Hero Section */
 .hero {
     position: relative;
     height: 500px;
-    background-image: url('../images/hero.png'); /* Image called using css */
+    background-image: url('../images/hero2.png'); /* Image called using css */
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     color: #fff;
     text-align: center;
 }
@@ -71,11 +89,54 @@ header .auth-links a {
 .hero h1 {
     font-family: 'Cairo Play', sans-serif;
     font-size: 80px;
+    text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+    line-height: 1.5;
+    color: #fff;
 }
 
 .hero p {
     font-size: 24px;
     margin: 20px 0;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+@media (max-width: 1200px) {
+    .hero h1 {
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 30px;
+        line-height: 1.1;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    }
+    .hero p {
+        font-size: 24px;
+        margin: 16px 0;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 24px;
+        line-height: 1.1;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .hero p {
+        font-size: 24px;
+        margin: 16px 0;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
 }
 
 .hero .btn {
@@ -86,6 +147,7 @@ header .auth-links a {
     font-weight: bold;
     font-size: 24px;
     border-radius: 5px;
+    box-shadow: 1px 1px 2px rgba(0,0,0, 0.3);
 }
 
 /* Facilities Section */
@@ -521,3 +583,4 @@ footer .footer-nav p {
     margin-bottom: 20px;
 }
 /* End About Us/ Contact Us */
+
