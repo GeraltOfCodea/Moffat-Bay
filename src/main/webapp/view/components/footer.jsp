@@ -1,3 +1,12 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Ryan, Eric, & Celine
+  Team: Blue Team
+  For: CSD460
+  Date: 11/16/24
+  Time: 3:01 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <footer>
@@ -12,7 +21,7 @@
          </div>
          <div class="footer-nav">
              <ul>
-                 <li><a href="#">About Us</a></li>
+                 <li><a href="${pageContext.request.contextPath}/view/aboutus.jsp">About Us</a></li>
              </ul>
              <p>&copy; 2023 Moffat Bay Lodge</p>
          </div>
