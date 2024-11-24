@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,500&display=swap');
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(src/main/webapp/images/sanJuan.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+/* Style the container holding the form details */
+.formDetails {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the summary section */
+.summary {
+    margin-bottom: 20px;
+}
+
+.summary p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.summary strong {
+    color: #3d3f32;
+}
+
+/* Style for the buttons section */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 48%;
+}
+
+.cancel {
+    background-color: #e89b53;
+    color: white;
+}
+
+.submit {
+    background-color: #426e76;
+    color: white;
+}
+
+/* Hover and active states for buttons */
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.98);
+}
