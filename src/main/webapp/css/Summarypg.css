@@ -8,7 +8,7 @@
 }
 
 body{
-    background-image: url(src/main/webapp/images/sanJuan.jpg);
+    background-image: url(../images/sanJuan.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
