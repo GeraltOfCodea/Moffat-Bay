@@ -35,6 +35,10 @@
 									<span class="form-label">Full Name</span>
 									<input class="form-control" type="text" name="fullName" placeholder="Enter your Full Name">
 								</div>
+								<div class="form-group">
+									<span class="form-label">Email</span>
+									<input class="form-control" id = "email" type="text" placeholder="Enter your email (e.g, user@domain.com)">
+								</div>
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
@@ -116,6 +120,7 @@
 
 		// Collect form data
 		const fullName = document.getElementById("fullName").value;
+		const emailAddress = document.getElementById("email").value;
 		const checkinDate = document.getElementById("checkinDate").value;
 		const checkoutDate = document.getElementById("checkoutDate").value;
 		const roomType = document.getElementById("roomTypes").value;
@@ -123,9 +128,10 @@
 		const children = document.getElementById("children").value;
 
 		// Check if all fields are filled before proceeding
-		if (fullName && checkinDate && checkoutDate && roomType && adults && children) {
+		if (fullName && emailAddress && checkinDate && checkoutDate && roomType && adults && children) {
 			// Store form data in localStorage
 			localStorage.setItem('fullName', fullName);
+			localStorage.setItem('emailAddress', emailAddress);
 			localStorage.setItem('checkinDate', checkinDate);
 			localStorage.setItem('checkoutDate', checkoutDate);
 			localStorage.setItem('roomTypes', roomType);
