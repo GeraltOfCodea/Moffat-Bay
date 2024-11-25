@@ -29,22 +29,22 @@
 				<div class="col-md-5">
 					<div class="booking-form">
 						<form>
-							<form>
+							<form action ="${pageContext.request.contextPath}/view/components/reserve.jsp" >
 								<div class="form-group">
 									<span class="form-label">Full Name</span>
-									<input class="form-control" type="text" placeholder="Enter your Full Name">
+									<input class="form-control" type="text" name="fullName" placeholder="Enter your Full Name">
 								</div>
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
 											<span class="form-label">Check In</span>
-											<input class="form-control" type="date" required="">
+											<input class="form-control" name="checkInDate" type="date" required="">
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<span class="form-label">Check out</span>
-											<input class="form-control" type="date" required="">
+											<input class="form-control" name="checkOutDate" type="date" required="">
 										</div>
 									</div>
 								</div>
@@ -52,7 +52,7 @@
 									<div class="col-sm-4">
 										<div class="form-group">
 											<span class="form-label">Rooms</span>
-											<select class="form-control">
+											<select class="form-control" name="roomType">
 												<option>Twin</option>
 												<option>Queen</option>
 												<option>King</option>
@@ -63,7 +63,7 @@
 									<div class="col-sm-4">
 										<div class="form-group">
 											<span class="form-label">Adults</span>
-											<select class="form-control" min = "1" required>
+											<select class="form-control" min = "1" name="adultAmt" required>
 												<option>1</option>
 												<option>2</option>
 												<option>3</option>
@@ -74,7 +74,7 @@
 									<div class="col-sm-4">
 										<div class="form-group">
 											<span class="form-label">Children</span>
-											<select class="form-control">
+											<select class="form-control" name="childAmt">
 												<option>0</option>
 												<option>1</option>
 												<option>2</option>

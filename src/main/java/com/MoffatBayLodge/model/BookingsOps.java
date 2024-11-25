@@ -3,43 +3,60 @@ package com.MoffatBayLodge.model;
 import com.MoffatBayLodge.beans.Bookings;
 
 import java.sql.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class BookingsOps {
 
     String customerName;
 
-    public void newBooking(int customerID, int numberOfGuests, Timestamp checkInDate, Timestamp checkOutDate, int roomID){
+    /*
+    *
+    * Using a random string of characters for a reservation ID to provide to users
+    * for the purpose of searching a specific reservation
+    *
+     */
+    public static String bookingIDGen(){
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder sb = new StringBuilder();
+        Random rand = new Random();
+        for (int i = 0; i <= 5; i++) {
+            int index = rand.nextInt(chars.length());
+            sb.append(chars.charAt(index));
+        }
+        return sb.toString();
+    }
+
+    /*
+    *
+    * Changed the booking requirements to need an email instead of customerID, this way users can search via email
+    * or booking ID rather than using a customerID that they won't be able to see
+    * Also added a roomSize instead of roomID, each room is unique already so we can go by size rather than ID, just one
+    * less value to track
+    *
+     */
+    public void newBooking(String email, int numberOfGuests, Timestamp checkInDate, Timestamp checkOutDate, String roomSize){
+        String bookingID = bookingIDGen();
         DBManager db = new DBManager();
         Connection conn = db.getConnection();
         Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-        String insertQuery = "INSERT INTO bookings (customer_id, number_of_guests, order_date, check_in, check_out) VALUES (?, ?, ?, ?, ?)";
-        String insertQuery2 = "INSERT INTO booked_rooms (booking_id, room_id) VALUES (?, ?)";
+        String insertQuery = "INSERT INTO bookings (booking_id, email_address, number_of_guests, order_date, check_in, check_out) VALUES (?, ?, ?, ?, ?, ?)";
+        String insertQuery2 = "INSERT INTO booked_rooms (booking_id, room_size) VALUES (?, ?)";
         if(conn != null){
             try {
                 PreparedStatement pstmt = conn.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-                pstmt.setInt(1, customerID);
-                pstmt.setInt(2, numberOfGuests);
-                pstmt.setTimestamp(3, currentTime);
-                pstmt.setTimestamp(4, checkInDate);
-                pstmt.setTimestamp(5, checkOutDate);
+                pstmt.setString(1, bookingID);
+                pstmt.setString(2, email);
+                pstmt.setInt(3, numberOfGuests);
+                pstmt.setTimestamp(4, currentTime);
+                pstmt.setTimestamp(5, checkInDate);
+                pstmt.setTimestamp(6, checkOutDate);
                 pstmt.executeUpdate();
-                // Retrieve the generated booking ID
-                ResultSet generatedKeys = pstmt.getGeneratedKeys();
-                int bookingID = -1;
-                if (generatedKeys.next()) {
-                    bookingID = generatedKeys.getInt(1);
-                } else {
-                    throw new SQLException("Creating booking failed, no ID obtained.");
-                }
-
 
 
                 PreparedStatement pstmt2 = conn.prepareStatement(insertQuery2);
-                pstmt2.setInt(1, bookingID);
-                pstmt2.setInt(2, roomID);
+                pstmt2.setString(1, bookingID);
+                pstmt2.setString(2, roomSize);
                 pstmt2.executeUpdate();
                 System.out.println("Successfully booked!");
 
@@ -127,40 +144,4 @@ public class BookingsOps {
         }
     }
 
-    public void updateBooking(int bookingID, int numberOfGuests, Timestamp checkInDate, Timestamp checkOutDate, int roomID){
-        DBManager db = new DBManager();
-        Connection conn = db.getConnection();
-        String updateQuery = "UPDATE bookings SET number_of_guests = ?," +
-                "check_in = ?,"
-                + "check_out = ?"
-                + "WHERE booking_id = ?";
-        String updateQuery2 = "UPDATE booked_rooms SET room_id = ? WHERE booking_id = ?";
-
-
-        if (conn != null){
-            try {
-                PreparedStatement pstmt = conn.prepareStatement(updateQuery);
-                pstmt.setInt(1, numberOfGuests);
-                pstmt.setTimestamp(2, checkInDate);
-                pstmt.setTimestamp(3, checkOutDate);
-                pstmt.setInt(4, bookingID);
-                pstmt.executeUpdate();
-
-                PreparedStatement pstmt2 = conn.prepareStatement(updateQuery2);
-                pstmt2.setInt(1, roomID);
-                pstmt2.setInt(2, bookingID);
-                pstmt2.executeUpdate();
-
-                System.out.println("Reservation successfully updated.");
-            } catch (SQLException e){
-                System.out.println("Unable to update booking.");
-                e.printStackTrace();
-            } finally {
-                db.closeConnection(conn);
-            }
-        }
-
-
-
-    }
 }

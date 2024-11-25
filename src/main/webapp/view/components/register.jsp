@@ -56,6 +56,7 @@
             // Registration successful
             // Optionally, log the user in by setting session attributes
             session.setAttribute("userName", firstName);
+            auth.isLoggedIn = true;
             response.sendRedirect(request.getContextPath() + "/view/Index.jsp"); // Redirect to home page
         } else {
             // Registration failed due to server error
