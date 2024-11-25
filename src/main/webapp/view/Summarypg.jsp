@@ -5,15 +5,19 @@
   Time: 10:04 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <!--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css"> -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Summarypg.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
+
     <title>Booking Summary Page</title>
 
 </head>
 <body>
+<!-- Header -->
+<%@ include file="/view/components/header.jsp" %>
+<div class = formDetails>
 <div class = "summary">
 <!-- RESERVATION SUMMARY -->
 <p><strong>Full Name: </strong><span id = "summary-fullName"></span></p>
@@ -28,6 +32,7 @@
 <div class = "buttons">
     <button class="cancel" onclick="window.location.href='${pageContext.request.contextPath}/view/Reservationpg.jsp'">Cancel Reservation</button>
     <button class = "submit">Confirm Reservation</button>
+</div>
 </div>
 
 <script>
