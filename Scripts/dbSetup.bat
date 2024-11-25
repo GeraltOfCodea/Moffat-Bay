@@ -1,7 +1,7 @@
 @echo off
 REM Database credentials
-set DB_USER=your_db_user
-set DB_PASS=your_db_password
+set DB_USER=root
+set DB_PASS=password1
 set DB_HOST=localhost
 
 REM Initialize database

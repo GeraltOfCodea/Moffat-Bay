@@ -10,35 +10,34 @@ CREATE TABLE MB_DATABASE.registered_users (
     email_address VARCHAR(50) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     phone_number VARCHAR(15)  NOT NULL,
-    PRIMARY KEY (customer_id)
+    PRIMARY KEY (customer_id, email_address)
 );
 
 -- Table to store room types
 CREATE TABLE MB_DATABASE.rooms (
-    room_id INT(3) NOT NULL AUTO_INCREMENT,
-    room_size VARCHAR(99) NOT NULL,
+    room_size VARCHAR(25) NOT NULL,
     room_price DECIMAL(6, 2),
-    PRIMARY KEY (room_id)
+    PRIMARY KEY (room_size)
 );
 
 -- Table to store confirmed user bookings
 CREATE TABLE  MB_DATABASE.bookings (
-    booking_id INT(3) NOT NULL AUTO_INCREMENT,
-    customer_id INT(3) NOT NULL,
+    booking_id INT(5) NOT NULL,
+    email_address VARCHAR(50),
     number_of_guests INT,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     check_in TIMESTAMP,
     check_out TIMESTAMP,
-    PRIMARY KEY (booking_id),
-    FOREIGN KEY (customer_id) REFERENCES registered_users (customer_id)
+    PRIMARY KEY (booking_id)
 );
 
 -- Table to store rooms that are booked to track availability
 CREATE TABLE MB_DATABASE. booked_rooms (
-    booking_id INT(3) NOT NULL,
-    room_id INT(3) NOT NULL,
+    booking_id INT(5) NOT NULL,
+    room_size VARCHAR(25) NOT NULL,
     PRIMARY KEY (booking_id),
-    FOREIGN KEY (booking_id) REFERENCES bookings (booking_id)  ON DELETE CASCADE
+    FOREIGN KEY (booking_id) REFERENCES bookings (booking_id)  ON DELETE CASCADE,
+    FOREIGN KEY (room_size) REFERENCES rooms (room_size)
 );
 
 -- Table to store requests/messages from guests and users
@@ -51,11 +50,3 @@ CREATE TABLE MB_DATABASE.contact_us (
     inquiry_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (inquiry_id)
 );
-
-
-INSERT INTO MB_DATABASE.rooms(room_id, room_size, room_price)
-VALUES (
-        001,
-        'Double Full Bed',
-        120.00
-       );

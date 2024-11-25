@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 
 public class Authentication {
 
+        public boolean isLoggedIn = false;
+
         //Method that takes a string and uses BCrypt to encrypt it
          public static String hashPassword(String password){
             return BCrypt.hashpw(password, BCrypt.gensalt());
