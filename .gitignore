@@ -84,7 +84,7 @@ local.properties
 .worksheet
 
 # macOS Directory
-.DS_Store
+.DS_Store/
 
 # Uncomment this line if you wish to ignore the project description file.
 # Typically, this file would be tracked if it contains build/dependency configurations:
@@ -106,3 +106,6 @@ local.properties
 # Build files
 target/
 out/
+
+# Database Config File
+resources/
