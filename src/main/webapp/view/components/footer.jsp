@@ -19,6 +19,11 @@
                  info@moffatbay.com
              </p>
          </div>
+         <div class="footer-info">
+
+             <img src="${pageContext.request.contextPath}/images/salishsalmon.png" alt="Moffat Bay Lodge">
+
+         </div>
          <div class="footer-nav">
              <ul>
                  <li><a href="${pageContext.request.contextPath}/view/aboutus.jsp">About Us</a></li>
