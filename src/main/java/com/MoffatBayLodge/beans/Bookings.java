@@ -2,6 +2,13 @@ package com.MoffatBayLodge.beans;
 
 import java.sql.Timestamp;
 
+/*
+ *
+ * Class to define all registrations
+ * This class tracks a registration's ID, the customer ID who placed the registration,
+ * The amount of guests staying, the date that the order is being placed, check in and check out dates
+ *
+ */
 public class Bookings {
     private String bookingId;         // Changed from int to String
     private int customerId;
