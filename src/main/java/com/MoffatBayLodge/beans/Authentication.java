@@ -51,20 +51,24 @@ public class Authentication {
              return hashedPassword != null && BCrypt.checkpw(password, hashedPassword);
          }
 
+
         //This method is called to place the username into the header when the customer completes authentication.
-        public String getUserName(String emailAddress) {
+        public User getUserByEmail(String emailAddress) {
             DBManager dbManager = new DBManager();
             Connection conn = dbManager.getConnection();
-            String query = "SELECT first_name FROM registered_users WHERE email_address=?";
-            String userName = null;
+            String query = "SELECT first_name, customer_id FROM registered_users WHERE email_address=?";
+            User user = null;
             if (conn != null) {
                 try {
                     PreparedStatement pstmt = conn.prepareStatement(query);
                     pstmt.setString(1, emailAddress);
                     ResultSet rs = pstmt.executeQuery();
                     if (rs.next()) {
-                        userName = rs.getString("first_name");
+                        String userName = rs.getString("first_name");
+                        int customerId = rs.getInt("customer_id");
+                        user = new User(userName, customerId);
                     }
+                    pstmt.close();
                 } catch (SQLException e) {
                     System.out.println("Could not access database accounts.");
                     e.printStackTrace();
@@ -72,7 +76,7 @@ public class Authentication {
                     dbManager.closeConnection(conn);
                 }
             }
-            return userName;
+            return user;
         }
 
         // Method to check if an email is available on registration

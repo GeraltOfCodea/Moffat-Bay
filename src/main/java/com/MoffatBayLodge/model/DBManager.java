@@ -3,6 +3,7 @@ package com.MoffatBayLodge.model;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import com.MoffatBayLodge.beans.Authentication;
+import com.MoffatBayLodge.beans.User;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -88,8 +89,14 @@ public class DBManager {
         try {
             if (auth.checkPassword(email, password)){
                 System.out.println("Successfully logged in.");
-                // Optionally, set session attributes
-                request.getSession().setAttribute("userName", auth.getUserName(email));
+
+                // Get user's details and set them in the session
+                User user = auth.getUserByEmail(email);
+                if (user != null) {
+                    request.getSession().setAttribute("userName", user.getUserName());
+                    request.getSession().setAttribute("customerId", user.getCustomerId());
+                }
+
                 response.sendRedirect(request.getContextPath() + "/view/Index.jsp");
             } else {
                 // Authentication failed

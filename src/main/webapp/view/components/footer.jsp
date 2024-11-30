@@ -27,6 +27,7 @@
          <div class="footer-nav">
              <ul>
                  <li><a href="${pageContext.request.contextPath}/view/aboutus.jsp">About Us</a></li>
+                 <li><a href="${pageContext.request.contextPath}/view/ReservationLookup.jsp">Reservation Lookup</a></li>
              </ul>
              <p>&copy; 2024 Moffat Bay Lodge</p>
          </div>

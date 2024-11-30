@@ -1,3 +1,39 @@
+<%@ page import="com.MoffatBayLodge.model.DBManager" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.*" %>
+
+<%
+	// Initialize DBManager and retrieve room types and prices
+	DBManager dbManager = new DBManager();
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
+	List<Map<String, String>> roomTypes = new ArrayList<>();
+
+	try {
+		conn = dbManager.getConnection();
+		String sql = "SELECT room_size, room_price FROM rooms"; // Adjust column names if necessary
+		pstmt = conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+
+		while (rs.next()) {
+			String roomType = rs.getString("room_size");
+			String roomPrice = rs.getString("room_price");
+			Map<String, String> room = new HashMap<>();
+			room.put("type", roomType);
+			room.put("price", roomPrice);
+			roomTypes.add(room);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		if (rs != null) try { rs.close(); } catch (SQLException e) { /* Handle Exception */ }
+		if (pstmt != null) try { pstmt.close(); } catch (SQLException e) { /* Handle Exception */ }
+		if (conn != null) dbManager.closeConnection(conn);
+	}
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +44,7 @@
 	<!-- Existing stylesheets -->
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Reservationpg.css">
+	<title>Reservation Page</title>
 </head>
 <body>
 <!-- Navigation -->
@@ -55,22 +92,34 @@
 									</div>
 								</div>
 							</div>
+							<!-- Room Type and Price -->
 							<div class="row">
 								<!-- Room Type -->
-								<div class="col-sm-4">
+								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Rooms</span>
 										<select class="form-control" id="roomTypes" name="roomType">
 											<option value="">Select</option>
-											<option value="Twin">Twin</option>
-											<option value="Queen">Queen</option>
-											<option value="King">King</option>
+											<% for (Map<String, String> room : roomTypes) { %>
+											<option value="<%= room.get("type") %>" data-price="<%= room.get("price") %>">
+												<%= room.get("type") %>
+											</option>
+											<% } %>
 										</select>
 										<span class="select-arrow"></span>
 									</div>
 								</div>
+								<!-- Price per Night -->
+								<div class="col-sm-6">
+									<div class="form-group">
+										<span class="form-label">Price per Night</span>
+										<input class="form-control" id="roomPrice" type="text" readonly>
+									</div>
+								</div>
+							</div>
+							<div class="row">
 								<!-- Adults -->
-								<div class="col-sm-4">
+								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Adults</span>
 										<select class="form-control" id="adults" name="adultAmt" required>
@@ -82,7 +131,7 @@
 									</div>
 								</div>
 								<!-- Children -->
-								<div class="col-sm-4">
+								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Children</span>
 										<select class="form-control" id="children" name="childAmt">
@@ -105,14 +154,20 @@
 	</div>
 </div>
 
-<!-- Include Bootstrap JS -->
+<!-- Include jQuery and Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <script>
+	// Update room price when room type is selected
+	document.getElementById("roomTypes").addEventListener("change", function() {
+		var selectedOption = this.options[this.selectedIndex];
+		var price = selectedOption.getAttribute("data-price");
+		document.getElementById("roomPrice").value = price ? "$" + price : "";
+	});
+
 	// Attach event listener to the submit button
 	document.getElementById("submit-btn").addEventListener("click", function(event) {
-
 		// Prevent the form from submitting and reloading the page
 		event.preventDefault();
 
@@ -122,6 +177,7 @@
 		const checkinDate = document.getElementById("checkinDate").value;
 		const checkoutDate = document.getElementById("checkoutDate").value;
 		const roomType = document.getElementById("roomTypes").value;
+		const roomPrice = document.getElementById("roomPrice").value;
 		const adults = document.getElementById("adults").value;
 		const children = document.getElementById("children").value;
 
@@ -138,23 +194,19 @@
 			return;
 		}
 
-		// Get today's date without having to add the time component
+		// Date Validation
 		const today = new Date();
-		today.setHours(0, 0, 0, 0); // Set time to midnight to compare only dates
-
+		today.setHours(0, 0, 0, 0);
 		const checkin = new Date(checkinDate);
-		checkin.setHours(0, 0, 0, 0); // Ensure time is set to midnight
-
+		checkin.setHours(0, 0, 0, 0);
 		const checkout = new Date(checkoutDate);
-		checkout.setHours(0, 0, 0, 0); // Ensure time is set to midnight
+		checkout.setHours(0, 0, 0, 0);
 
-		// Check if check-in date is in the past
 		if (checkin < today) {
 			alert("Check-in date cannot be in the past.");
 			return;
 		}
 
-		// Check if check-out date is after check-in date
 		if (checkout <= checkin) {
 			alert("Check-out date must be after check-in date.");
 			return;
@@ -166,6 +218,7 @@
 		localStorage.setItem('checkinDate', checkinDate);
 		localStorage.setItem('checkoutDate', checkoutDate);
 		localStorage.setItem('roomType', roomType);
+		localStorage.setItem('roomPrice', roomPrice);
 		localStorage.setItem('adults', adults);
 		localStorage.setItem('children', children);
 
