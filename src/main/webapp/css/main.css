@@ -584,3 +584,107 @@ footer .footer-nav p {
 }
 /* End About Us/ Contact Us */
 
+
+/* Start Reservation Lookup Form Styles */
+.reservation-lookup-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.reservation-lookup-form .form-group {
+    margin-bottom: 15px;
+}
+
+.reservation-lookup-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.reservation-lookup-form select,
+.reservation-lookup-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.reservation-lookup-form .form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.reservation-lookup-form .btn {
+    background-color: #E89B53;
+    color: #fff;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reservation-lookup-form .btn:hover {
+    background-color: #cf935a;
+}
+
+/* Reservations Table Styles */
+.reservations-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 40px 0;
+}
+
+.reservations-table th,
+.reservations-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.reservations-table th {
+    background-color: #426E76;
+    color: #fff;
+    font-weight: bold;
+}
+
+.reservations-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.reservations-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive Table */
+@media screen and (max-width: 768px) {
+    .reservations-table thead {
+        display: none;
+    }
+    .reservations-table, .reservations-table tbody, .reservations-table tr, .reservations-table td {
+        display: block;
+        width: 100%;
+    }
+    .reservations-table tr {
+        margin-bottom: 15px;
+    }
+    .reservations-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    .reservations-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+/* End of Reservation Lookup styles */

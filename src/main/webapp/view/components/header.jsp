@@ -19,7 +19,7 @@
           <nav>
               <ul class="nav-links">
                   <li><a href="${pageContext.request.contextPath}/view/Index.jsp">Home</a></li>
-                  <li><a href="#">Attractions</a></li>
+                  <li><a href="${pageContext.request.contextPath}/view/attractions.jsp">Attractions</a></li>
                   <li><a href="${pageContext.request.contextPath}/view/Reservationpg.jsp">Reservations</a></li>
                   <li><a href="${pageContext.request.contextPath}/view/aboutus.jsp">About Us</a></li>
               </ul>

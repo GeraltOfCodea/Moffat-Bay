@@ -27,7 +27,7 @@
         <div class="hero-text">
             <h1>WELCOME TO Moffat Bay Lodge</h1>
             <p>Where Nature Meets Tranquility. Discover Your Escape at Moffat Bay Lodge</p>
-            <a href="#" class="btn">Book Now</a>
+            <a href="${pageContext.request.contextPath}/view/Reservationpg.jsp" class="btn">Book Now</a>
         </div>
     </section>
 

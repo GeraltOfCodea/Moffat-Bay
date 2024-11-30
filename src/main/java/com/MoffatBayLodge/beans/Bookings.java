@@ -1,38 +1,40 @@
 package com.MoffatBayLodge.beans;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Bookings {
-    private int bookingId;
+    private String bookingId;         // Changed from int to String
     private int customerId;
+    private String customerName;      // Added field
+    private String emailAddress;      // Added field
     private int numberOfGuests;
-    private Date orderDate;
-    private Date checkInDate;
-    private Date checkOutDate;
+    private Timestamp orderDate;      // Changed from Date to Timestamp
+    private Timestamp checkInDate;    // Changed from Date to Timestamp
+    private Timestamp checkOutDate;   // Changed from Date to Timestamp
+    private String roomSize;          // Added field
 
-    /*
-    *
-    * Class to define all registrations
-    * This class tracks a registration's ID, the customer ID who placed the registration,
-    * The amount of guests staying, the date that the order is being placed, check in and check out dates
-    *
-     */
-    public Bookings(){
-
+    // Default constructor
+    public Bookings() {
     }
-    public Bookings(int bookingId, int customerId, int numberOfGuests, Date orderDate, Date checkInDate, Date checkOutDate){
+
+    // Constructor with all fields
+    public Bookings(String bookingId, int customerId, String customerName, String emailAddress, int numberOfGuests, Timestamp orderDate, Timestamp checkInDate, Timestamp checkOutDate, String roomSize) {
         this.bookingId = bookingId;
         this.customerId = customerId;
+        this.customerName = customerName;
+        this.emailAddress = emailAddress;
         this.numberOfGuests = numberOfGuests;
         this.orderDate = orderDate;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
+        this.roomSize = roomSize;
     }
 
-    public int getBookingId() {
+    // Getters and Setters
+    public String getBookingId() {
         return bookingId;
     }
-    public void setBookingId(int bookingId) {
+    public void setBookingId(String bookingId) {
         this.bookingId = bookingId;
     }
     public int getCustomerId() {
@@ -41,30 +43,46 @@ public class Bookings {
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
+    public String getCustomerName() {
+        return customerName;
+    }
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
     public int getNumberOfGuests() {
         return numberOfGuests;
     }
     public void setNumberOfGuests(int numberOfGuests) {
         this.numberOfGuests = numberOfGuests;
     }
-    public Date getOrderDate() {
+    public Timestamp getOrderDate() {
         return orderDate;
     }
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(Timestamp orderDate) {
         this.orderDate = orderDate;
     }
-    public Date getCheckInDate() {
+    public Timestamp getCheckInDate() {
         return checkInDate;
     }
-    public void setCheckInDate(Date checkInDate) {
+    public void setCheckInDate(Timestamp checkInDate) {
         this.checkInDate = checkInDate;
     }
-    public Date getCheckOutDate() {
+    public Timestamp getCheckOutDate() {
         return checkOutDate;
     }
-    public void setCheckOutDate(Date checkOutDate) {
+    public void setCheckOutDate(Timestamp checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
-
-
+    public String getRoomSize() {
+        return roomSize;
+    }
+    public void setRoomSize(String roomSize) {
+        this.roomSize = roomSize;
+    }
 }
