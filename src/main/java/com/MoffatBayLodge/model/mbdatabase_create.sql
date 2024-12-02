@@ -1,3 +1,9 @@
+-- Moffat Bay Capstone Project
+--  Developed by:
+--  -Celine Del Mundo
+--  -Ryan Norrbom
+--  -Eric Williams-Phillips
+
 -- Fresh database creation
 DROP DATABASE IF EXISTS MB_DATABASE;
 CREATE DATABASE MB_DATABASE;

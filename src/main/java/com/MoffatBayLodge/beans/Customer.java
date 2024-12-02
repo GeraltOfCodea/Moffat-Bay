@@ -1,3 +1,10 @@
+/*
+ * Moffat Bay Capstone Project
+ * Developed by:
+ * - Celine Del Mundo
+ * - Ryan Norrbom
+ * - Eric Williams-Phillips
+ */
 package com.MoffatBayLodge.beans;
 
 public class Customer {

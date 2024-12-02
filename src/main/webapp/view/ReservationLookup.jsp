@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: ryannorrbom
-  Date: 11/28/24
-  Time: 8:35 PM
+  User: Ryan, Eric, & Celine
+  Team: Blue Team
+  For: CSD460
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>

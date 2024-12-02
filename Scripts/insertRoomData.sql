@@ -1,9 +1,15 @@
+-- Moffat Bay Capstone Project
+--  Developed by:
+--  -Celine Del Mundo
+--  -Ryan Norrbom
+--  -Eric Williams-Phillips
+
 USE MB_DATABASE;
 
 -- Insert room types
 INSERT INTO rooms (room_size, room_price)
 VALUES
-('double full beds', 126.00),
-('queen', 141.75),
-('double queen beds', 157.50),
-('king', 168.00);
+('Double Full Beds', 126.00),
+('Queen', 141.75),
+('Double Queen Beds', 157.50),
+('King', 168.00);
