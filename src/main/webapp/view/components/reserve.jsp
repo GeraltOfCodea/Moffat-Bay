@@ -28,3 +28,12 @@
     }
 
 %>
+
+
+<%--
+  Moffat Bay Capstone Project
+  Developed by:
+  Celine Del Mundo
+  Ryan Norrbom
+  Eric Williams-Phillips
+--%>
