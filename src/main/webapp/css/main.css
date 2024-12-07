@@ -234,6 +234,7 @@ header nav ul li a:focus::after {
     transition: opacity 0.3s;
 }
 
+
 .attraction:hover .attraction-overlay {
     opacity: 1;
     background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
