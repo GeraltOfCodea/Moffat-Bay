@@ -125,7 +125,7 @@
             </div>
             <div class="business-card">
                 <img src="${pageContext.request.contextPath}/images/sanjuanoutfitters.jpg" alt="Image of two people side by side in kayaks." style="width: 800px; height: auto">
-                <h1>Shearwater Kayak Tours</h1>
+                <h1>San Juan Outfitters</h1>
                 <p>Exclusive, private kayak launches, three to five hour tours, 2-5 day overnight camping tour available!</p>
                 <h3>Address: </h3><p>248 Reuben Memorial Drive, Roche Harbor, <br> WA 98250</p>
                 <h3>Email: </h3><p>info@sanjuanislandoutfitters.com</p>
