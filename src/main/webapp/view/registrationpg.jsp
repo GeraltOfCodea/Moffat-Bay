@@ -24,8 +24,8 @@
 <header class="header">
     <nav class="navbar">
         <a href="${pageContext.request.contextPath}/view/Index.jsp">Home</a>
-        <a href="#">Attractions</a>
-        <a href="#">About Us</a>
+        <a href="${pageContext.request.contextPath}/view/attractions.jsp">Attractions</a>
+        <a href="${pageContext.request.contextPath}/view/aboutus.jsp">About Us</a>
     </nav>
     <form action="" class="search-bar">
         <input type="text" placeholder="Search...">
