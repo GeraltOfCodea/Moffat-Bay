@@ -86,7 +86,7 @@
                 <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/dining.png');">
                     <div class="attraction-overlay">
                         <h3>Dining</h3>
-                        <a href="#" class="btn">Learn More</a>
+                        <a href="${pageContext.request.contextPath}/view/attractions.jsp#top" class="btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                 <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/whale-watching.png');">
                     <div class="attraction-overlay">
                         <h3>Whale Watching</h3>
-                        <a href="#" class="btn">Learn More</a>
+                        <a href="${pageContext.request.contextPath}/view/attractions.jsp#whale-watching" class="btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                 <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/kayaking.png');">
                     <div class="attraction-overlay">
                         <h3>Kayaking</h3>
-                        <a href="#" class="btn">Learn More</a>
+                        <a href="${pageContext.request.contextPath}/view/attractions.jsp#kayaking" class="btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -112,17 +112,35 @@
             <div class="attraction">
                 <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/scuba-diving.png');">
                     <div class="attraction-overlay">
-                        <h3>Scuba Diving</h3>
-                        <a href="#" class="btn">Learn More</a>
+                        <h3>Fishing</h3>
+                        <a href="${pageContext.request.contextPath}/view/attractions.jsp#fishing" class="btn">Learn More</a>
                     </div>
                 </div>
             </div>
             <!-- Sixth Attraction -->
             <div class="attraction">
-                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/hiking.png');">
+                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/freetheater.jpg');">
+                    <div class="attraction-overlay">
+                        <h3>Entertainment, Art, and History</h3>
+                        <a href="${pageContext.request.contextPath}/view/attractions.jsp#entertainment" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="attraction">
+                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/freescuba.png');">
+                    <div class="attraction-overlay">
+                        <h3>Scuba Diving</h3>
+                        <p><b>Interested in Scuba Diving? <br> Check in with a local diving operator for a safe and memorable time! </b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="attraction">
+                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/freehiker.jpg');">
                     <div class="attraction-overlay">
                         <h3>Hiking</h3>
-                        <a href="#" class="btn">Learn More</a>
+                        <p><b>Love for the outdoors? <br> San Juan Islands has a variety of hiking experiences to choose from!</b></p>
+                        <a href="https://www.visitsanjuans.com/hiking" class="btn" style="margin-top: 20px">Learn More</a>
+
                     </div>
                 </div>
             </div>
