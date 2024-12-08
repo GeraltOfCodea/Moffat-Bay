@@ -1,7 +1,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Attractions</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cairo+Play&display=swap" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/attractions.css" rel="stylesheet">

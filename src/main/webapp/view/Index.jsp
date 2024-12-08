@@ -146,22 +146,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Rooms Section -->
-    <section class="rooms">
-        <h2>Rooms</h2>
-        <div class="room-list">
-            <div class="room">
-                <div class="room-image" style="background-image: url('${pageContext.request.contextPath}/images/club-king-room.png');">
-                    <div class="room-overlay">
-                        <h3>Club King Room</h3>
-                        <a href="#" class="btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Add more rooms as needed -->
-        </div>
-    </section>
+    
 
     <!-- Footer -->
     <%@ include file="/view/components/footer.jsp" %>
