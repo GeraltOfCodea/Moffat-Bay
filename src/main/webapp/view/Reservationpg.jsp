@@ -209,8 +209,8 @@
 		const checkout = new Date(checkoutDate);
 		checkout.setHours(0, 0, 0, 0);
 
-		if (checkin < today) {
-			alert("Check-in date cannot be in the past.");
+		if (checkin < today || checkin === today) {
+			alert("Check-in must be in the future.");
 			return;
 		}
 

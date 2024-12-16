@@ -110,7 +110,7 @@
             </div>
             <!-- Fifth Attraction -->
             <div class="attraction">
-                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/scuba-diving.png');">
+                <div class="attraction-image" style="background-image: url('${pageContext.request.contextPath}/images/fishing.png');">
                     <div class="attraction-overlay">
                         <h3>Fishing</h3>
                         <a href="${pageContext.request.contextPath}/view/attractions.jsp#fishing" class="btn">Learn More</a>
