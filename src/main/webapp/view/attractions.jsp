@@ -1,5 +1,12 @@
-
-<html>
+<%--
+  Created by IntelliJ IDEA.
+  User: Ryan, Eric, & Celine
+  Team: Blue Team
+  For: CSD460
+  To change this template use File | Settings | File Templates.
+--%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Attractions</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">

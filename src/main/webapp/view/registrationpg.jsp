@@ -16,25 +16,19 @@
 <head>
     <title>Moffat Bay Lodge - Registration</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/registrationpg.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cairo+Play&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
-<!-- NAVBAR CREATION -->
-<header class="header">
-    <nav class="navbar">
-        <a href="${pageContext.request.contextPath}/view/Index.jsp">Home</a>
-        <a href="${pageContext.request.contextPath}/view/attractions.jsp">Attractions</a>
-        <a href="${pageContext.request.contextPath}/view/aboutus.jsp">About Us</a>
-    </nav>
-    <form action="" class="search-bar">
-        <input type="text" placeholder="Search...">
-        <button><i class='bx bx-search'></i></button>
-    </form>
-</header>
+<!-- Header -->
+<%@ include file="/view/components/header.jsp" %>
+
+
 <!-- REGISTRATION FORM CREATION -->
 <div class="background"></div>
-<div class="container">
+<div class="content">
     <div class="item">
         <h2 class="logo"><i class='bx bx-hotel'></i> Moffat Bay</h2>
         <div class="text-item">
@@ -102,5 +96,9 @@
         </div>
     </div>
 </div>
+
+
+<%@ include file="/view/components/footer.jsp" %>
+
 </body>
 </html>

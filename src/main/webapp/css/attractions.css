@@ -1,3 +1,9 @@
+/*
+User: Ryan, Eric, & Celine
+Team: Blue Team
+For: CSD460
+*/
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -150,6 +156,7 @@ html{
 header {
     background-color: #fff;
     padding: 20px 0;
+
 }
 
 header .container {
