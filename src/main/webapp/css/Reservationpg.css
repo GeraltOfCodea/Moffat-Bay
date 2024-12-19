@@ -21,6 +21,8 @@
 	justify-content: space-between;
 	align-items: center;
 	z-index: 100;
+	font-family: 'Ubuntu', sans-serif;
+
 }
 
 .navbar a {
@@ -30,6 +32,7 @@
 	font-weight: 600;
 	margin-right: 30px;
 	text-decoration: none;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 .navbar a::after {
@@ -49,6 +52,19 @@
 .navbar a:hover::after {
 	transform: translateY(0);
 	opacity: 1;
+}
+
+.navbar-nav > li > a:hover {
+	text-decoration: none;
+}
+
+li a:hover {
+	text-decoration: none;
+}
+
+a:focus, a:hover {
+	color: #23527c;
+	text-decoration: none;
 }
 
 .search-bar {

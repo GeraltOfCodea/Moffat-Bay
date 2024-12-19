@@ -25,7 +25,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">
-            <h1>WELCOME TO Moffat Bay Lodge</h1>
+            <h1>Welcome to Moffat Bay Lodge</h1>
             <p>Where Nature Meets Tranquility. Discover Your Escape at Moffat Bay Lodge</p>
             <a href="${pageContext.request.contextPath}/view/Reservationpg.jsp" class="btn">Book Now</a>
         </div>
