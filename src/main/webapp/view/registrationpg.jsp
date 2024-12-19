@@ -15,10 +15,11 @@
 <html lang="en">
 <head>
     <title>Moffat Bay Lodge - Registration</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/registrationpg.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cairo+Play&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/registrationpg.css">
+    <!--<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">-->
 </head>
 <body>
 
