@@ -203,15 +203,18 @@
 			return;
 		}
 
-		// Date Validation
+		// Process Date Form Field for Validation
+		const [yearcheckIn, monthcheckIn, daycheckIn] = checkinDate.split('-').map(Number);
+		const checkin = new Date(yearcheckIn, monthcheckIn - 1, daycheckIn, 0, 0, 0);
+		const [yearcheckOut, monthcheckOut, daycheckOut] = checkoutDate.split('-').map(Number);
+		const checkout = new Date(yearcheckOut, monthcheckOut - 1, daycheckOut, 0, 0, 0);
+
+		// Date Validator based on Today's date.
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
-		const checkin = new Date(checkinDate);
-		checkin.setHours(0, 0, 0, 0);
-		const checkout = new Date(checkoutDate);
-		checkout.setHours(0, 0, 0, 0);
 
-		if (checkin < today || checkin === today) {
+
+		if (checkin < today) {
 			alert("Check-in must be in the future.");
 			return;
 		}
